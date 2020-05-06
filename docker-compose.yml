@@ -1,0 +1,62 @@
+version: "2"
+
+services:
+
+  shop:
+    image: iocron/shopware:5.6.6
+    # image: iocron/shopware:latest
+    # image: dnhsoft/shopware:5.6.2
+    # image: dnhsoft/shopware:5.6.1
+    # image: dnhsoft/shopware:latest
+    links:
+      - mysql:db
+      # - mailhog
+    ports:
+      - "80:80"
+    volumes:
+      - "./volumes/shop/log:/shopware/var/log"
+      - "./volumes/shop/files:/shopware/files"
+      - "./volumes/shop/media:/shopware/media"
+      - "./volumes/shop/custom/plugins:/shopware/custom/plugins"
+      - "./volumes/shop/custom/project:/shopware/custom/project"
+    env_file:
+      - shop-variables-local.env
+    # environment:
+    #     SW_CRON: 1
+    #     TZ: Europe/Berlin
+    #     SWDB_TZ: Europe/Berlin
+    #     SWPHPSETTINGS_DATE_TIMEZONE: Europe/Berlin
+    #     PHP_SESSION_COOKIE_SECURE: "Off"
+    #     SW_HTTPS: "off"
+    #     SWPHP_IONCUBE_ENABLE: 1
+  mysql:
+    image: mysql:5.7
+    volumes:
+    ##  this makes the mysql shopware friendly, otherwise we have some utf8 issues
+    #  - "./docker/mysql/mysqld_charset.cnf:/etc/mysql/conf.d/mysqld_charset.cnf"
+      - "./volumes/mysql:/var/lib/mysql"
+    ports:
+      - "32940:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      TZ: Europe/Berlin
+      SWDB_TZ: Europe/Berlin
+  #pma:
+  #  image: phpmyadmin/phpmyadmin:4.8
+  #  links:
+  #    - mysql:db
+  #  ports:
+  #    - "8001:80"
+  #  environment:
+  #    PMA_USER: root
+  #    PMA_PASSWORD: 123456
+  #    TZ: Europe/Berlin
+  #mailhog:
+    #image: mailhog/mailhog
+    #expose:
+    #  - "1025"
+    #  - "8025"
+    #ports:
+    #  - "8025:8025"
+    #environment:
+    #  TZ: Europe/Berlin

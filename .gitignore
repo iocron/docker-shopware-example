@@ -1,0 +1,17 @@
+/volumes
+/_tmp
+/.idea
+
+### MAC ###
+*.DS_Store
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Windows ###
+Desktop.ini
+Thumbs.db
+
+### Others ###
+node_modules
+.sass-cache
