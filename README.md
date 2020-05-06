@@ -13,8 +13,9 @@ This is a docker-compose example for using https://github.com/iocron/docker-shop
 5. type in localhost in your browser (or localhost/backend for the shopware backend)
 
 ### DB Connection:
-If you need direct access to your Database, then use the following credentials:
-Host: 127.0.0.1
-User: root
-Password: 123456
-Port: 32940
+If you need direct access to your Database, then use the following credentials: 
+
+Host: 127.0.0.1  
+User: root  
+Password: 123456  
+Port: 32940  
