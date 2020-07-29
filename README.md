@@ -19,3 +19,21 @@ Host: 127.0.0.1
 User: root  
 Password: 123456  
 Port: 32940  
+
+### SSH Connection:
+You can connect to the docker-container with our shell helper script: `./docker-ssh.sh`
+If you want to log in as root, then use: `docker-compose exec --privileged shop bash`
+
+# Theme Helper Folders
+Use the following commands step by step, if you want to have the bare and responsive themes referenced on your local workspace:
+
+```
+./docker-ssh.sh
+cp -Rp themes/Frontend/Bare/* themes/\_Frontend/Bare/
+cp -Rp themes/Frontend/Responsive/* themes/\_Frontend/Responsive/
+```
+
+### Links
+https://github.com/iocron/docker-shopware
+https://github.com/iocron/docker-shopware-example
+https://github.com/shopware/shopware

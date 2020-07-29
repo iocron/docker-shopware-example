@@ -19,6 +19,8 @@ services:
       - "./volumes/shop/media:/shopware/media"
       - "./volumes/shop/custom/plugins:/shopware/custom/plugins"
       - "./volumes/shop/custom/project:/shopware/custom/project"
+      - "./volumes/shop/themes/Frontend/Bare:/shopware/themes/_Frontend/Bare"
+      - "./volumes/shop/themes/Frontend/Responsive:/shopware/themes/_Frontend/Responsive"
     env_file:
       - shop-variables-local.env
     # environment:
