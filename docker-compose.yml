@@ -3,7 +3,7 @@ version: "2"
 services:
 
   shop:
-    image: iocron/shopware:5.6.6
+    image: iocron/shopware:5.6.7
     # image: iocron/shopware:latest
     # image: dnhsoft/shopware:5.6.2
     # image: dnhsoft/shopware:5.6.1
